@@ -1,0 +1,12 @@
+ngrok:
+    image: ypereirareis/ngrok
+    hostname: ngrok
+    volumes:
+        - "./bin:/root/ngrok/bin"
+        - "./certs:/root/ngrok/certs"
+    environment:
+        NGROK_DOMAIN:
+    ports:
+        - 8080:8080
+        - 4443:4443
+        - 4433:4433

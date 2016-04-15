@@ -21,10 +21,14 @@ RUN apt-get update && apt-get install -y --force-yes --no-install-recommends \
 
 RUN git clone https://github.com/inconshreveable/ngrok.git /root/ngrok
 
+RUN mkdir /root/ngrok/certs
+
 ADD ./startup.sh /root/startup.sh
 RUN chmod +x /root/startup.sh
 
 WORKDIR /root/ngrok
+
+VOLUME /root/ngrok/certs
 
 CMD ["/root/startup.sh"]
 

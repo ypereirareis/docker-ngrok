@@ -6,15 +6,18 @@ Docker image to run ngrok server
 ## Build
 
 ```
-docker build -t ypereirareis/ngrok .
+make build
 ```
 
 ## Start
 
 ```
-docker run -it -d --name=ngrok \
-    -p 4433:4433 -p 8080:8080 -p 4443:4443 \
-    -e NGROK_DOMAIN=ngrok.domain.fr \
-    -v `pwd`/bin:/root/ngrok/bin \
-        ypereirareis/ngrok
+NGROK_DOMAIN=your.domain.com make start
 ```
+
+`NGROK_DOMAIN` must be set to the value of your ngrok server domain name.
+
+## Remove/restart
+
+The volumes are properly configured to allow you to stop/remove the container
+and start it again... it will work with previously set certificates.
